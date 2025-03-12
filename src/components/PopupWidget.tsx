@@ -26,7 +26,7 @@ export function PopupWidget() {
 
   const onSubmit = async (data: any, e: any) => {
     console.log(data);
-    await fetch("https://api.web3forms.com/submit", {
+    await fetch("https://formsubmit.co/your-email@example.com", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -273,15 +273,7 @@ export function PopupWidget() {
                         id="result"
                       >
                         <span>
-                          Powered by{" "}
-                          <a
-                            href="https://Web3Forms.com"
-                            className="text-gray-600"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            Web3Forms
-                          </a>
+                          Contact form by IBC Website
                         </span>
                       </p>
                     </form>

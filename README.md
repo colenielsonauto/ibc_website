@@ -1,4 +1,5 @@
 # IBC Website
+
 A custom-built website for the Investment Banking Club. This website is built with Next.js and Tailwind CSS.
 
 ## Features
@@ -49,4 +50,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Acknowledgements
 
-This website was built using Next.js and Tailwind CSS. The original template was created by Web3Templates and has been customized for the Investment Banking Club.
+This website was built using Next.js and Tailwind CSS and has been customized for the Investment Banking Club at Boise State University.

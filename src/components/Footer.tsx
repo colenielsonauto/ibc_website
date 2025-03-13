@@ -84,14 +84,14 @@ export function Footer() {
                 <Facebook />
               </a>
               <a
-                href="https://instagram.com/ibcbsu"
+                href="https://www.instagram.com/ibcatbsu"
                 target="_blank"
                 rel="noopener"
               >
                 <span className="sr-only">Instagram</span>
                 <Instagram />
               </a>
-              <a href="https://linkedin.com/company/ibcbsu" target="_blank" rel="noopener">
+              <a href="https://www.linkedin.com/company/ibc-bsu/" target="_blank" rel="noopener">
                 <span className="sr-only">Linkedin</span>
                 <Linkedin />
               </a>

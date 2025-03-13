@@ -59,7 +59,7 @@ export default function ContactPage() {
           
           <div className="flex space-x-4">
             <a
-              href="https://www.instagram.com/ibcbsu"
+              href="https://www.instagram.com/ibcatbsu"
               target="_blank"
               rel="noopener noreferrer"
               className="h-12 w-12 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center text-indigo-600 dark:text-indigo-400 hover:bg-indigo-200 dark:hover:bg-indigo-800 transition-colors"
@@ -67,7 +67,7 @@ export default function ContactPage() {
               <Instagram className="h-6 w-6" />
             </a>
             <a
-              href="https://www.linkedin.com/company/investment-banking-club-bsu"
+              href="https://www.linkedin.com/company/ibc-bsu/"
               target="_blank"
               rel="noopener noreferrer"
               className="h-12 w-12 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center text-indigo-600 dark:text-indigo-400 hover:bg-indigo-200 dark:hover:bg-indigo-800 transition-colors"

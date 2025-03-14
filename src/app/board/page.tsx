@@ -103,7 +103,7 @@ export default function BoardPage() {
             </div>
             <div className="p-6">
               <h3 className="text-2xl font-bold text-gray-800 dark:text-white">{president.name}</h3>
-              <p className="text-indigo-600 dark:text-indigo-400 font-medium mb-3">{president.position}</p>
+              <p className="text-[#0a2966] dark:text-white font-medium mb-3">{president.position}</p>
               <p className="text-gray-600 dark:text-gray-300">{president.bio}</p>
             </div>
           </div>
@@ -129,7 +129,7 @@ export default function BoardPage() {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gray-800 dark:text-white">{vp.name}</h3>
-                <p className="text-indigo-600 dark:text-indigo-400 font-medium mb-3">{vp.position}</p>
+                <p className="text-[#0a2966] dark:text-white font-medium mb-3">{vp.position}</p>
                 <p className="text-gray-600 dark:text-gray-300">{vp.bio}</p>
               </div>
             </div>
@@ -137,7 +137,7 @@ export default function BoardPage() {
         </div>
       </div>
 
-      <div className="bg-indigo-50 dark:bg-gray-800 rounded-xl p-8 my-10">
+      <div className="bg-[#0a2966]/5 dark:bg-gray-800 rounded-xl p-8 my-10">
         <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-6 text-center">Join Our Executive Board</h3>
         <p className="text-lg text-gray-600 dark:text-gray-400 text-center max-w-3xl mx-auto mb-8">
           Interested in becoming a board member? Elections are held at the end of each academic year. Board members gain valuable leadership experience and have the opportunity to shape the future of the club.
@@ -145,7 +145,7 @@ export default function BoardPage() {
         <div className="text-center">
           <a
             href="/contact"
-            className="px-8 py-4 text-lg font-medium text-center text-white bg-indigo-600 rounded-md hover:bg-indigo-700 transition-colors">
+            className="px-8 py-4 text-lg font-medium text-center text-white bg-[#0a2966] rounded-md hover:bg-[#0a2966]/80 transition-colors">
             Learn More
           </a>
         </div>

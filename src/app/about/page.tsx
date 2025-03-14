@@ -27,7 +27,7 @@ export default function AboutPage() {
             We envision a future where Boise State University is recognized as a top school for investment banking recruitment, with our alumni working at prestigious financial institutions across the globe.
           </p>
           <p className="text-lg text-gray-600 dark:text-gray-400">
-            Through our commitment to excellence, we strive to create a community of finance professionals who support each other's growth and success throughout their careers.
+            Through our commitment to excellence, we strive to create a community of finance professionals who support each other&apos;s growth and success throughout their careers.
           </p>
         </div>
       </div>

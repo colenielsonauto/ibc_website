@@ -82,7 +82,7 @@ export default function EventsPage() {
             <div className="p-6 md:w-2/3">
               <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
                 <h3 className="text-2xl font-bold text-gray-800 dark:text-white">{event.title}</h3>
-                <div className="mt-2 md:mt-0 text-indigo-600 dark:text-indigo-400 font-medium">{event.date}</div>
+                <div className="mt-2 md:mt-0 text-[#0a2966] dark:text-white font-medium">{event.date}</div>
               </div>
               <div className="mb-4">
                 <div className="flex items-center text-gray-600 dark:text-gray-300 mb-1">
@@ -102,7 +102,7 @@ export default function EventsPage() {
               <p className="text-gray-600 dark:text-gray-300 mb-6">{event.description}</p>
               <a
                 href="#"
-                className="inline-block px-6 py-2 text-indigo-600 border border-indigo-600 rounded-md hover:bg-indigo-600 hover:text-white transition-colors dark:text-indigo-400 dark:border-indigo-400 dark:hover:bg-indigo-500 dark:hover:text-white"
+                className="inline-block px-6 py-2 text-[#0a2966] border border-[#0a2966] rounded-md hover:bg-[#0a2966] hover:text-white transition-colors dark:text-white dark:border-white dark:hover:bg-[#0a2966] dark:hover:text-white"
               >
                 RSVP
               </a>
@@ -131,14 +131,14 @@ export default function EventsPage() {
             </div>
             <div className="p-6">
               <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">{event.title}</h3>
-              <p className="text-indigo-600 dark:text-indigo-400 font-medium mb-3">{event.date}</p>
+              <p className="text-[#0a2966] dark:text-white font-medium mb-3">{event.date}</p>
               <p className="text-gray-600 dark:text-gray-300">{event.description}</p>
             </div>
           </div>
         ))}
       </div>
 
-      <div className="bg-indigo-50 dark:bg-gray-800 rounded-xl p-8 my-10 text-center">
+      <div className="bg-[#0a2966]/5 dark:bg-gray-800 rounded-xl p-8 my-10 text-center">
         <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">Stay Updated</h3>
         <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-6">
           Subscribe to our newsletter to receive updates on upcoming events and opportunities.
@@ -148,12 +148,12 @@ export default function EventsPage() {
             <input
               type="email"
               placeholder="Your email address"
-              className="flex-grow px-4 py-3 rounded-md border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:text-white"
+              className="flex-grow px-4 py-3 rounded-md border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-[#0a2966] dark:bg-gray-700 dark:text-white"
               required
             />
             <button
               type="submit"
-              className="px-6 py-3 bg-indigo-600 text-white font-medium rounded-md hover:bg-indigo-700 transition-colors"
+              className="px-6 py-3 bg-[#0a2966] text-white font-medium rounded-md hover:bg-[#0a2966]/80 transition-colors"
             >
               Subscribe
             </button>

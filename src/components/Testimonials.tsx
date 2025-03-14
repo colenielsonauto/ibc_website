@@ -87,7 +87,7 @@ function Mark(props: { readonly children: React.ReactNode }) {
   return (
     <>
       {" "}
-      <mark className="text-indigo-800 bg-indigo-100 rounded-md ring-indigo-100 ring-4 dark:ring-indigo-900 dark:bg-indigo-900 dark:text-indigo-200">
+      <mark className="text-[#0a2966] bg-[#0a2966]/10 rounded-md ring-[#0a2966]/10 ring-4 dark:ring-[#0a2966]/20 dark:bg-[#0a2966]/20 dark:text-white">
         {props.children}
       </mark>{" "}
     </>

@@ -11,3 +11,12 @@
   }
 }
 
+/* 3D Spinning Logo Styles */
+.perspective-500 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+

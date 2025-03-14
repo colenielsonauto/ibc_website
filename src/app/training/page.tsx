@@ -26,31 +26,31 @@ export default function TrainingPage() {
           <h4 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">Program Highlights</h4>
           <ul className="space-y-3">
             <li className="flex items-start">
-              <svg className="w-6 h-6 text-indigo-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg className="w-6 h-6 text-[#0a2966] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
               </svg>
               <span className="text-gray-600 dark:text-gray-300">Financial modeling in Excel</span>
             </li>
             <li className="flex items-start">
-              <svg className="w-6 h-6 text-indigo-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg className="w-6 h-6 text-[#0a2966] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
               </svg>
               <span className="text-gray-600 dark:text-gray-300">Valuation methodologies (DCF, Comps, Precedent Transactions)</span>
             </li>
             <li className="flex items-start">
-              <svg className="w-6 h-6 text-indigo-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg className="w-6 h-6 text-[#0a2966] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
               </svg>
               <span className="text-gray-600 dark:text-gray-300">M&A analysis and LBO modeling</span>
             </li>
             <li className="flex items-start">
-              <svg className="w-6 h-6 text-indigo-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg className="w-6 h-6 text-[#0a2966] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
               </svg>
               <span className="text-gray-600 dark:text-gray-300">Pitch book creation and presentation skills</span>
             </li>
             <li className="flex items-start">
-              <svg className="w-6 h-6 text-indigo-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg className="w-6 h-6 text-[#0a2966] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
               </svg>
               <span className="text-gray-600 dark:text-gray-300">Technical and behavioral interview preparation</span>
@@ -59,25 +59,25 @@ export default function TrainingPage() {
         </div>
       </div>
 
-      <div className="bg-indigo-50 dark:bg-gray-800 rounded-xl p-8 my-10">
+      <div className="bg-[#0a2966]/5 dark:bg-gray-800 rounded-xl p-8 my-10">
         <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-6 text-center">Program Structure</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-sm">
-            <div className="text-indigo-500 text-4xl font-bold mb-3">01</div>
+            <div className="text-[#0a2966] text-4xl font-bold mb-3">01</div>
             <h4 className="text-xl font-semibold text-gray-800 dark:text-white mb-3">Fundamentals</h4>
             <p className="text-gray-600 dark:text-gray-400">
               Learn the basics of financial statements, Excel modeling, and the investment banking industry.
             </p>
           </div>
           <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-sm">
-            <div className="text-indigo-500 text-4xl font-bold mb-3">02</div>
+            <div className="text-[#0a2966] text-4xl font-bold mb-3">02</div>
             <h4 className="text-xl font-semibold text-gray-800 dark:text-white mb-3">Advanced Modeling</h4>
             <p className="text-gray-600 dark:text-gray-400">
               Master complex valuation techniques, M&A analysis, and leveraged buyout modeling.
             </p>
           </div>
           <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-sm">
-            <div className="text-indigo-500 text-4xl font-bold mb-3">03</div>
+            <div className="text-[#0a2966] text-4xl font-bold mb-3">03</div>
             <h4 className="text-xl font-semibold text-gray-800 dark:text-white mb-3">Career Preparation</h4>
             <p className="text-gray-600 dark:text-gray-400">
               Develop your resume, practice interviews, and learn networking strategies for landing internships and jobs.
@@ -93,7 +93,7 @@ export default function TrainingPage() {
         </p>
         <a
           href="/contact"
-          className="px-8 py-4 text-lg font-medium text-center text-white bg-indigo-600 rounded-md hover:bg-indigo-700 transition-colors">
+          className="px-8 py-4 text-lg font-medium text-center text-white bg-[#0a2966] rounded-md hover:bg-[#0a2966]/80 transition-colors">
           Apply Now
         </a>
       </div>

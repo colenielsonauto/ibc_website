@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import { Container } from "@/components/Container";
 import Link from "next/link";
+import { useEffect, useRef } from "react";
 
 export const Hero = () => {
   return (
@@ -10,7 +13,7 @@ export const Hero = () => {
           <div className="max-w-2xl mb-8">
             <h1 className="text-4xl font-bold leading-snug tracking-tight text-gray-800 lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight dark:text-white">
               Investment Banking Club
-              <span className="text-indigo-600 dark:text-indigo-400"> Boise State University</span>
+              <span className="text-[#0a2966] dark:text-white"> Boise State University</span>
             </h1>
             <p className="py-5 text-xl leading-normal text-gray-500 lg:text-xl xl:text-2xl dark:text-gray-300">
               Preparing the next generation of finance professionals through education, networking, and real-world experience.
@@ -19,12 +22,12 @@ export const Hero = () => {
             <div className="flex flex-col items-start space-y-3 sm:space-x-4 sm:space-y-0 sm:items-center sm:flex-row">
               <Link
                 href="/about"
-                className="px-8 py-4 text-lg font-medium text-center text-white bg-indigo-600 rounded-md hover:bg-indigo-700 transition-colors">
+                className="px-8 py-4 text-lg font-medium text-center text-white bg-[#0a2966] rounded-md hover:bg-[#0a2966]/80 transition-colors">
                 Learn More
               </Link>
               <Link
                 href="/contact"
-                className="flex items-center space-x-2 text-gray-500 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+                className="flex items-center space-x-2 text-gray-500 dark:text-gray-400 hover:text-[#0a2966] dark:hover:text-white transition-colors">
                 <span>Contact Us</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -41,24 +44,55 @@ export const Hero = () => {
           </div>
         </div>
         <div className="flex items-center justify-center w-full lg:w-1/2">
-          <div className="relative w-full h-[400px] bg-gradient-to-tr from-indigo-500/20 to-purple-500/20 rounded-2xl overflow-hidden backdrop-blur-sm border border-indigo-100 dark:border-indigo-900">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center p-6">
-                <h3 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Analyst Training Program</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-6 max-w-md">
-                  Our flagship program preparing students for careers in investment banking through hands-on training and mentorship.
-                </p>
-                <Link
-                  href="/training"
-                  className="px-6 py-3 text-lg font-medium text-center text-white bg-indigo-600 rounded-md hover:bg-indigo-700 transition-colors">
-                  Explore Program
-                </Link>
-              </div>
-            </div>
-          </div>
+          <SpinningLogo />
         </div>
       </Container>
     </>
+  );
+};
+
+// Spinning Logo Component
+const SpinningLogo = () => {
+  const logoRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const logoElement = logoRef.current;
+    if (!logoElement) return;
+
+    let animationFrameId: number;
+    let rotation = 0;
+    
+    const animate = () => {
+      rotation += 0.5; // 25% faster rotation speed (increased from 0.3)
+      if (logoElement) {
+        logoElement.style.transform = `rotateY(${rotation}deg)`;
+      }
+      animationFrameId = requestAnimationFrame(animate);
+    };
+    
+    animate();
+    
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, []);
+
+  return (
+    <div className="flex items-center justify-center" style={{ perspective: '1000px' }}>
+      <div 
+        ref={logoRef} 
+        className="relative transition-transform duration-300 w-[400px] h-[400px]"
+        style={{ transformStyle: 'preserve-3d' }}
+      >
+        <Image
+          src="/ibc_logos/ibcbulllogo-removebg.png"
+          alt="Investment Banking Club Logo"
+          fill
+          className="object-contain"
+          priority
+        />
+      </div>
+    </div>
   );
 };
 

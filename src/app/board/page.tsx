@@ -1,13 +1,16 @@
 import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
 import ClientImage from "@/components/ClientImage";
+import { Linkedin } from "lucide-react";
+import Link from "next/link";
 
 export default function BoardPage() {
   const president = {
     name: "Forrest Wartig",
     position: "President",
     bio: "Leading the Investment Banking Club with dedication and expertise.",
-    image: "/img/team/forrest_wartig.JPG"
+    image: "/img/team/forrest_wartig.JPG",
+    linkedin: "https://www.linkedin.com/in/forrest-wartig/"
   };
 
   const vicePresidents = [
@@ -15,49 +18,57 @@ export default function BoardPage() {
       name: "Nick Lloyd",
       position: "Vice President",
       bio: "Committed to helping students succeed in investment banking.",
-      image: "/img/team/Lloyd - Logo Shot.JPG"
+      image: "/img/team/Lloyd - Logo Shot.JPG",
+      linkedin: "https://www.linkedin.com/in/nicholas-e-lloyd/"
     },
     {
       name: "Angel Dang",
       position: "Vice President",
       bio: "Passionate about finance and mentoring fellow students.",
-      image: "/img/team/Dang - Logo Shot.JPG"
+      image: "/img/team/Dang - Logo Shot.JPG",
+      linkedin: "https://www.linkedin.com/in/angel-dang-635883299/"
     },
     {
       name: "Chloe Miller",
       position: "Vice President",
       bio: "Dedicated to creating opportunities for students in finance.",
-      image: "/img/team/Miller - Logo Shot.JPG"
+      image: "/img/team/Miller - Logo Shot.JPG",
+      linkedin: "https://www.linkedin.com/in/chloe-miller-7ab047273/"
     },
     {
       name: "Mustafa Hakeem",
       position: "Vice President",
       bio: "Bringing industry insights to help students prepare for careers in banking.",
-      image: "/img/team/Hakeem - Logo Shot.JPG"
+      image: "/img/team/Hakeem - Logo Shot.JPG",
+      linkedin: "https://www.linkedin.com/in/mustafa-hakeem-5251b51b8/"
     },
     {
       name: "Jilary Rodriguez",
       position: "Vice President",
       bio: "Focused on developing educational resources for club members.",
-      image: "/img/team/rodriguez.JPG"
+      image: "/img/team/rodriguez.JPG",
+      linkedin: "https://www.linkedin.com/in/jilaryrodriguez/"
     },
     {
       name: "Cole Nielson",
       position: "Vice President",
       bio: "Working to build connections between students and industry professionals.",
-      image: "/img/team/Cole - Logo Shot.JPG"
+      image: "/img/team/Cole - Logo Shot.JPG",
+      linkedin: "https://www.linkedin.com/in/cole-nielson-b05724196/"
     },
     {
       name: "Michael Routt",
       position: "Vice President",
       bio: "Committed to enhancing the club's training programs.",
-      image: "/img/team/michael_routt.JPG"
+      image: "/img/team/michael_routt.JPG",
+      linkedin: "https://www.linkedin.com/in/michael-routt-050a50237/"
     },
     {
       name: "Ryan Mendiola",
       position: "Vice President",
       bio: "Dedicated to organizing valuable events for club members.",
-      image: "/img/team/mendiola.JPG"
+      image: "/img/team/mendiola.JPG",
+      linkedin: "https://www.linkedin.com/in/ryan-mendiola/"
     }
   ];
 
@@ -102,7 +113,12 @@ export default function BoardPage() {
               />
             </div>
             <div className="p-6">
-              <h3 className="text-2xl font-bold text-gray-800 dark:text-white">{president.name}</h3>
+              <div className="flex items-center justify-between">
+                <h3 className="text-2xl font-bold text-gray-800 dark:text-white">{president.name}</h3>
+                <a href={president.linkedin} target="_blank" rel="noopener noreferrer" aria-label={`${president.name}'s LinkedIn profile`}>
+                  <Linkedin className="w-5 h-5 text-[#0a2966] dark:text-white" />
+                </a>
+              </div>
               <p className="text-[#0a2966] dark:text-white font-medium mb-3">{president.position}</p>
               <p className="text-gray-600 dark:text-gray-300">{president.bio}</p>
             </div>
@@ -128,7 +144,12 @@ export default function BoardPage() {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-800 dark:text-white">{vp.name}</h3>
+                <div className="flex items-center justify-between">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-white">{vp.name}</h3>
+                  <a href={vp.linkedin} target="_blank" rel="noopener noreferrer" aria-label={`${vp.name}'s LinkedIn profile`}>
+                    <Linkedin className="w-5 h-5 text-[#0a2966] dark:text-white" />
+                  </a>
+                </div>
                 <p className="text-[#0a2966] dark:text-white font-medium mb-3">{vp.position}</p>
                 <p className="text-gray-600 dark:text-gray-300">{vp.bio}</p>
               </div>

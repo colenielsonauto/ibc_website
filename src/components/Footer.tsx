@@ -1,9 +1,14 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import React from "react";
 import { Container } from "@/components/Container";
+import { useTheme } from "next-themes";
 
 export function Footer() {
+  const { theme } = useTheme();
+  const isDark = theme === 'dark';
   const navigation = ["Product", "Features", "Pricing", "Company", "Blog"];
   const legal = ["Terms", "Privacy", "Legal"];
   return (
@@ -18,11 +23,11 @@ export function Footer() {
                 className="flex items-center space-x-2 text-2xl font-medium text-[#0a2966] dark:text-gray-100"
               >
                 <Image
-                  src="/img/logo.jpg"
+                  src={`/ibc_logos/${isDark ? 'WhiteTransparent.png' : 'ibcbulllogo-removebg.png'}`}
                   alt="IBC"
                   width="40"
                   height="40"
-                  className="w-10 h-10 rounded-full object-cover"
+                  className="w-14 h-14 object-contain"
                 />
                 <span>IBC<span className="text-gray-800 dark:text-white">BSU</span></span>
               </Link>

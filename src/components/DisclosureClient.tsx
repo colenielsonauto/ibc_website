@@ -48,7 +48,7 @@ export function DisclosureClient(props: Readonly<DisclosureClientProps>) {
                   alt={logo.image.alternativeText || logo.image.name}
                   width={32}
                   height={32}
-                  className="w-8"
+                  className="w-12 object-contain"
                 />
               </span>
               <span>{logo.text}</span>

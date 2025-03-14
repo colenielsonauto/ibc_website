@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Logo Check</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 10px;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 20px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      text-align: left;
+    }
+    pre {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+  </style>
+</head>
+<body>
+  <h1>Logo Check</h1>
+  <p>This page checks if the logo changes correctly when the theme changes.</p>
+  
+  <div>
+    <button id="checkLogo">Check Logo</button>
+    <button id="toggleTheme">Toggle Theme</button>
+  </div>
+  
+  <div class="result">
+    <h3>Logo Check Result:</h3>
+    <pre id="logoResult">Not checked yet</pre>
+  </div>
+
+  <script>
+    document.getElementById('checkLogo').addEventListener('click', async function() {
+      try {
+        const response = await fetch('/');
+        const html = await response.text();
+        
+        // Check the current theme
+        const currentTheme = localStorage.getItem('theme') || 'system';
+        
+        // Look for logo URLs in the HTML
+        const logoRegex = /srcSet="([^"]*?)"/g;
+        const matches = html.match(logoRegex);
+        
+        if (matches && matches.length > 0) {
+          const logoSrc = matches[0];
+          
+          // Check which logo is being used
+          const isWhiteTransparent = logoSrc.includes('WhiteTransparent.png');
+          const isBullLogo = logoSrc.includes('ibcbulllogo-removebg.png');
+          
+          let result = `Current theme: ${currentTheme}\n`;
+          result += `Logo source: ${logoSrc}\n\n`;
+          
+          if (currentTheme === 'dark' && isWhiteTransparent) {
+            result += '✅ Correct: Using WhiteTransparent.png in dark mode';
+          } else if (currentTheme === 'dark' && !isWhiteTransparent) {
+            result += '❌ Incorrect: Not using WhiteTransparent.png in dark mode';
+          } else if (currentTheme !== 'dark' && isBullLogo) {
+            result += '✅ Correct: Using ibcbulllogo-removebg.png in light mode';
+          } else if (currentTheme !== 'dark' && !isBullLogo) {
+            result += '❌ Incorrect: Not using ibcbulllogo-removebg.png in light mode';
+          } else {
+            result += '❓ Unknown state';
+          }
+          
+          document.getElementById('logoResult').textContent = result;
+        } else {
+          document.getElementById('logoResult').textContent = 'No logo found in the HTML';
+        }
+      } catch (error) {
+        document.getElementById('logoResult').textContent = `Error: ${error.message}`;
+      }
+    });
+
+    document.getElementById('toggleTheme').addEventListener('click', function() {
+      const currentTheme = localStorage.getItem('theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('theme', newTheme);
+      document.getElementById('logoResult').textContent = `Theme toggled to: ${newTheme}\nPlease click "Check Logo" to verify the logo change.`;
+      
+      // Reload the main page in a new tab
+      window.open('/', '_blank');
+    });
+  </script>
+</body>
+</html> 

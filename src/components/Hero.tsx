@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Container } from "@/components/Container";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
+import { useTheme } from "next-themes";
 
 export const Hero = () => {
   return (
@@ -54,6 +55,8 @@ export const Hero = () => {
 // Spinning Logo Component
 const SpinningLogo = () => {
   const logoRef = useRef<HTMLDivElement>(null);
+  const { theme } = useTheme();
+  const isDark = theme === 'dark';
 
   useEffect(() => {
     const logoElement = logoRef.current;
@@ -63,7 +66,7 @@ const SpinningLogo = () => {
     let rotation = 0;
     
     const animate = () => {
-      rotation += 0.5; // 25% faster rotation speed (increased from 0.3)
+      rotation += 0.5;
       if (logoElement) {
         logoElement.style.transform = `rotateY(${rotation}deg)`;
       }
@@ -85,7 +88,7 @@ const SpinningLogo = () => {
         style={{ transformStyle: 'preserve-3d' }}
       >
         <Image
-          src="/ibc_logos/ibcbulllogo-removebg.png"
+          src={`/ibc_logos/${isDark ? 'WhiteTransparent.png' : 'ibcbulllogo-removebg.png'}`}
           alt="Investment Banking Club Logo"
           fill
           className="object-contain"

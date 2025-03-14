@@ -2,12 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 @layer base {
   html,
   body {
     @apply dark:bg-trueGray-900;
+    font-family: 'Times New Roman', serif;
+    font-size: 18px;
+  }
+  
+  * {
+    font-family: 'Times New Roman', serif;
+  }
+  
+  /* Ensure buttons and links have appropriate font sizes */
+  a, button {
+    font-size: 1.125rem; /* 18px */
+  }
+  
+  /* Adjust line heights for better readability with Times New Roman */
+  p, li, span {
+    line-height: 1.6;
+  }
+  
+  /* Ensure small text elements are readable */
+  small, .text-xs, .text-sm {
+    font-size: 0.9375rem; /* 15px - increased from smaller sizes */
+  }
+  
+  /* Form elements */
+  input, select, textarea {
+    font-size: 1.125rem; /* 18px */
   }
 }
 

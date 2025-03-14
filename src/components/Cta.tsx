@@ -19,7 +19,7 @@ export const Cta = () => {
             href="/contact"
             className="inline-block py-3 mx-auto text-lg font-medium text-center text-[#0a2966] bg-white rounded-md px-7 lg:px-10 lg:py-5 hover:bg-gray-100 transition-colors"
           >
-            Apply Now
+            Click Here
           </Link>
         </div>
       </div>

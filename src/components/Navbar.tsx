@@ -4,9 +4,12 @@ import ThemeChanger from "./DarkSwitch";
 import Image from "next/image"
 import { Disclosure } from "@headlessui/react";
 import { usePathname } from "next/navigation";
+import { useTheme } from "next-themes";
 
 export const Navbar = () => {
   const pathname = usePathname();
+  const { theme } = useTheme();
+  const isDark = theme === 'dark';
   const navigation = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
@@ -25,11 +28,11 @@ export const Navbar = () => {
           <span className="flex items-center space-x-2 text-2xl font-medium text-[#0a2966] dark:text-gray-100">
               <span>
                 <Image
-                  src="/img/logo.jpg"
+                  src={`/ibc_logos/${isDark ? 'WhiteTransparent.png' : 'ibcbulllogo-removebg.png'}`}
                   width="40"
                   alt="IBC"
                   height="40"
-                  className="w-10 h-10 rounded-full object-cover"
+                  className="w-14 h-14 object-contain"
                 />
               </span>
             <span>IBC<span className="text-gray-800 dark:text-white">BSU</span></span>

@@ -5,6 +5,7 @@ import { Container } from "@/components/Container";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { useTheme } from "next-themes";
+import { motion } from "framer-motion";
 
 export const Hero = () => {
   return (
@@ -12,15 +13,38 @@ export const Hero = () => {
       <Container className="flex flex-wrap">
         <div className="flex items-center w-full lg:w-1/2">
           <div className="max-w-2xl mb-8">
-            <h1 className="text-4xl font-bold leading-snug tracking-tight text-gray-800 lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight dark:text-white">
+            <motion.h1 
+              className="text-4xl font-bold leading-snug tracking-tight text-gray-800 lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight dark:text-white"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+            >
               Investment Banking Club
-              <span className="text-[#0a2966] dark:text-white"> Boise State University</span>
-            </h1>
-            <p className="py-5 text-xl leading-normal text-gray-500 lg:text-xl xl:text-2xl dark:text-gray-300">
+              <motion.span 
+                className="text-[#0a2966] dark:text-white block"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+              >
+                Boise State University
+              </motion.span>
+            </motion.h1>
+            
+            <motion.p 
+              className="py-5 text-xl leading-normal text-gray-500 lg:text-xl xl:text-2xl dark:text-gray-300"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+            >
               Preparing the next generation of finance professionals through education, networking, and real-world experience.
-            </p>
+            </motion.p>
 
-            <div className="flex flex-col items-start space-y-3 sm:space-x-4 sm:space-y-0 sm:items-center sm:flex-row">
+            <motion.div 
+              className="flex flex-col items-start space-y-3 sm:space-x-4 sm:space-y-0 sm:items-center sm:flex-row"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+            >
               <Link
                 href="/about"
                 className="px-8 py-4 text-lg font-medium text-center text-white bg-[#0a2966] rounded-md hover:bg-[#0a2966]/80 transition-colors">
@@ -41,11 +65,17 @@ export const Hero = () => {
                     clipRule="evenodd"></path>
                 </svg>
               </Link>
-            </div>
+            </motion.div>
           </div>
         </div>
         <div className="flex items-center justify-center w-full lg:w-1/2">
-          <SpinningLogo />
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+          >
+            <SpinningLogo />
+          </motion.div>
         </div>
       </Container>
     </>

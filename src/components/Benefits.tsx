@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import React from "react";
 import { Container }  from "@/components/Container";
+import ClientAnimatedElement, { ClientParallaxImage } from "./ClientAnimatedElement";
 
 interface BenefitsProps {
   imgPos?: "left" | "right";
@@ -24,17 +27,24 @@ export const Benefits = (props: Readonly<BenefitsProps>) => {
           className={`flex items-center justify-center w-full lg:w-1/2 ${
             props.imgPos === "right" ? "lg:order-1" : ""
           }`}>
-          <div>
-            <Image
-              src={data.image}
-              width={521}
-              height={521}
-              alt="Benefits"
-              className={"object-cover"}
-              placeholder="blur"
-              blurDataURL={data.image.src}
-            />
-          </div>
+          <ClientAnimatedElement 
+            animation="scale" 
+            duration={0.7} 
+            threshold={0.2}
+            className="w-full"
+          >
+            <div className="overflow-hidden rounded-lg">
+              <Image
+                src={data.image}
+                width={521}
+                height={521}
+                alt="Benefits"
+                className="object-cover transform hover:scale-105 transition-transform duration-700"
+                placeholder="blur"
+                blurDataURL={data.image.src}
+              />
+            </div>
+          </ClientAnimatedElement>
         </div>
 
         <div
@@ -43,20 +53,31 @@ export const Benefits = (props: Readonly<BenefitsProps>) => {
           }`}>
           <div>
             <div className="flex flex-col w-full mt-4">
-              <h3 className="max-w-2xl mt-3 text-3xl font-bold leading-snug tracking-tight text-gray-800 lg:leading-tight lg:text-4xl dark:text-white">
-                {data.title}
-              </h3>
+              <ClientAnimatedElement animation="slideUp" duration={0.6}>
+                <h3 className="max-w-2xl mt-3 text-3xl font-bold leading-snug tracking-tight text-gray-800 lg:leading-tight lg:text-4xl dark:text-white">
+                  {data.title}
+                </h3>
+              </ClientAnimatedElement>
 
-              <p className="max-w-2xl py-4 text-lg leading-normal text-gray-500 lg:text-xl xl:text-xl dark:text-gray-300">
-                {data.desc}
-              </p>
+              <ClientAnimatedElement animation="slideUp" delay={0.2} duration={0.6}>
+                <p className="max-w-2xl py-4 text-lg leading-normal text-gray-500 lg:text-xl xl:text-xl dark:text-gray-300">
+                  {data.desc}
+                </p>
+              </ClientAnimatedElement>
             </div>
 
             <div className="w-full mt-5">
               {data.bullets.map((item, index) => (
-                <Benefit key={index} title={item.title} icon={item.icon}>
-                  {item.desc}
-                </Benefit>
+                <ClientAnimatedElement 
+                  key={index} 
+                  animation="slideUp" 
+                  delay={0.2 + index * 0.1} 
+                  duration={0.5}
+                >
+                  <Benefit title={item.title} icon={item.icon}>
+                    {item.desc}
+                  </Benefit>
+                </ClientAnimatedElement>
               ))}
             </div>
           </div>

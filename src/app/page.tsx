@@ -5,6 +5,14 @@ import { Cta } from "@/components/Cta";
 import Link from "next/link";
 import Image from "next/image";
 import { Info, GraduationCap, Users, CalendarDays, Trophy, Send } from "lucide-react";
+import dynamic from 'next/dynamic';
+import ValuesAnimation, { ValueCard } from "@/components/ValuesAnimation";
+import WhyJoinAnimation from "@/components/WhyJoinAnimation";
+import AnalystTrainingWidget from "@/components/AnalystTrainingWidget";
+import AnimatedSectionCard from "@/components/AnimatedSectionCard";
+
+// Import the debug component with no SSR
+const AnimationDebug = dynamic(() => import('@/components/AnimationDebug'), { ssr: false });
 
 export default function Home() {
   const sections = [
@@ -48,6 +56,9 @@ export default function Home() {
 
   return (
     <Container>
+      {/* Animation Debug Tool - Press Ctrl+D to toggle */}
+      <AnimationDebug />
+      
       <Hero />
       
       <SectionTitle
@@ -59,92 +70,37 @@ export default function Home() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-10">
         {sections.map((section, index) => (
-          <Link key={index} href={section.link} className="group">
-            <div className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md p-6 h-full transition-transform group-hover:scale-105">
-              <div className="flex items-center mb-4">
-                <div className="bg-[#0a2966]/10 dark:bg-[#0a2966]/20 p-3 rounded-lg mr-4">
-                  {section.icon}
-                </div>
-                <h3 className="text-xl font-bold text-gray-800 dark:text-white">{section.title}</h3>
-              </div>
-              <p className="text-gray-600 dark:text-gray-300 mb-4">{section.description}</p>
-              <div className="text-[#0a2966] dark:text-white font-medium group-hover:underline">
-                Learn more →
-              </div>
-            </div>
-          </Link>
+          <AnimatedSectionCard
+            key={index}
+            title={section.title}
+            description={section.description}
+            icon={section.icon}
+            link={section.link}
+            index={index}
+          />
         ))}
       </div>
 
-      <div className="bg-[#0a2966]/5 dark:bg-gray-800 rounded-xl p-8 my-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-          <div>
-            <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">Why Join the Investment Banking Club?</h2>
-            <ul className="space-y-4">
-              <li className="flex items-start">
-                <svg className="w-6 h-6 text-[#0a2966] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span className="text-gray-600 dark:text-gray-300">Comprehensive training in financial modeling and valuation</span>
-              </li>
-              <li className="flex items-start">
-                <svg className="w-6 h-6 text-[#0a2966] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span className="text-gray-600 dark:text-gray-300">Networking opportunities with industry professionals</span>
-              </li>
-              <li className="flex items-start">
-                <svg className="w-6 h-6 text-[#0a2966] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span className="text-gray-600 dark:text-gray-300">Resume and interview preparation for finance roles</span>
-              </li>
-              <li className="flex items-start">
-                <svg className="w-6 h-6 text-[#0a2966] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span className="text-gray-600 dark:text-gray-300">Hands-on experience through competitions and case studies</span>
-              </li>
-              <li className="flex items-start">
-                <svg className="w-6 h-6 text-[#0a2966] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span className="text-gray-600 dark:text-gray-300">Community of like-minded students interested in finance</span>
-              </li>
-            </ul>
-          </div>
-          <div className="relative h-64 md:h-80 w-full">
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0a2966] to-[#0a2966]/80 rounded-lg opacity-20"></div>
-            <div className="absolute inset-0 flex items-center justify-center">
-              <h3 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white text-center">
-                Preparing Future <br /> Investment Bankers
-              </h3>
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* Our Values Section with Stacked Cards Animation */}
+      <ValuesAnimation>
+        <ValueCard title="Excellence" index={0}>
+          We strive for excellence in everything we do, from our educational programs to our networking events. Our members are committed to developing the skills and knowledge needed to succeed in the competitive world of investment banking.
+        </ValueCard>
+        <ValueCard title="Integrity" index={1}>
+          We believe in conducting ourselves with the highest level of integrity and ethics. Our members understand that trust is the foundation of the financial industry, and we emphasize ethical decision-making in all our activities.
+        </ValueCard>
+        <ValueCard title="Community" index={2}>
+          We foster a supportive community where students can learn, grow, and connect. We believe that collaboration and mentorship are essential for personal and professional development in the finance industry.
+        </ValueCard>
+      </ValuesAnimation>
+
+      {/* Why Join Section with Interactive Slide & Reveal */}
+      <WhyJoinAnimation />
 
       <Cta />
 
       {/* Analyst Training Program Widget */}
-      <div className="flex flex-wrap items-center justify-between w-full max-w-4xl gap-5 mx-auto text-white bg-[#0a2966]/90 px-7 py-7 lg:px-12 lg:py-12 lg:flex-nowrap rounded-xl mt-4">
-        <div className="flex-grow text-center lg:text-left">
-          <h2 className="text-2xl font-medium lg:text-3xl">
-            Analyst Training Program
-          </h2>
-          <p className="mt-2 font-medium text-white text-opacity-90 lg:text-xl">
-            Our flagship program preparing students for careers in investment banking through hands-on training and mentorship.
-          </p>
-        </div>
-        <div className="flex-shrink-0 w-full text-center lg:w-auto">
-          <Link
-            href="/training"
-            className="inline-block py-3 mx-auto text-lg font-medium text-center text-[#0a2966] bg-white rounded-md px-7 lg:px-10 lg:py-5 hover:bg-gray-100 transition-colors"
-          >
-            Apply Now
-          </Link>
-        </div>
-      </div>
+      <AnalystTrainingWidget />
     </Container>
   );
 }

@@ -1,5 +1,6 @@
 import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
+import ValuesAnimation, { ValueCard } from "@/components/ValuesAnimation";
 
 export default function AboutPage() {
   return (
@@ -32,29 +33,18 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-8 my-10">
-        <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-4 text-center">Our Values</h3>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-          <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-sm">
-            <h4 className="text-xl font-semibold text-gray-800 dark:text-white mb-3">Excellence</h4>
-            <p className="text-gray-600 dark:text-gray-400">
-              We strive for excellence in everything we do, from our training program to our networking events and competitions.
-            </p>
-          </div>
-          <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-sm">
-            <h4 className="text-xl font-semibold text-gray-800 dark:text-white mb-3">Integrity</h4>
-            <p className="text-gray-600 dark:text-gray-400">
-              We uphold the highest standards of integrity and ethics in all our interactions and activities.
-            </p>
-          </div>
-          <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-sm">
-            <h4 className="text-xl font-semibold text-gray-800 dark:text-white mb-3">Community</h4>
-            <p className="text-gray-600 dark:text-gray-400">
-              We foster a supportive community where members can learn, grow, and succeed together.
-            </p>
-          </div>
-        </div>
-      </div>
+      {/* Our Values Section with Stacked Cards Animation */}
+      <ValuesAnimation>
+        <ValueCard title="Excellence" index={0}>
+          We strive for excellence in everything we do, from our educational programs to our networking events. Our members are committed to developing the skills and knowledge needed to succeed in the competitive world of investment banking.
+        </ValueCard>
+        <ValueCard title="Integrity" index={1}>
+          We believe in conducting ourselves with the highest level of integrity and ethics. Our members understand that trust is the foundation of the financial industry, and we emphasize ethical decision-making in all our activities.
+        </ValueCard>
+        <ValueCard title="Community" index={2}>
+          We foster a supportive community where students can learn, grow, and connect. We believe that collaboration and mentorship are essential for personal and professional development in the finance industry.
+        </ValueCard>
+      </ValuesAnimation>
     </Container>
   );
 } 

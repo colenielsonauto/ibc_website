@@ -1,14 +1,11 @@
 import { Container } from "@/components/Container";
 import { Hero } from "@/components/Hero";
 import { SectionTitle } from "@/components/SectionTitle";
-import { Cta } from "@/components/Cta";
 import Link from "next/link";
 import Image from "next/image";
 import { Info, GraduationCap, Users, CalendarDays, Trophy, Send } from "lucide-react";
 import dynamic from 'next/dynamic';
-import ValuesAnimation, { ValueCard } from "@/components/ValuesAnimation";
 import WhyJoinAnimation from "@/components/WhyJoinAnimation";
-import AnalystTrainingWidget from "@/components/AnalystTrainingWidget";
 import AnimatedSectionCard from "@/components/AnimatedSectionCard";
 
 // Import the debug component with no SSR
@@ -81,26 +78,10 @@ export default function Home() {
         ))}
       </div>
 
-      {/* Our Values Section with Stacked Cards Animation */}
-      <ValuesAnimation>
-        <ValueCard title="Excellence" index={0}>
-          We strive for excellence in everything we do, from our educational programs to our networking events. Our members are committed to developing the skills and knowledge needed to succeed in the competitive world of investment banking.
-        </ValueCard>
-        <ValueCard title="Integrity" index={1}>
-          We believe in conducting ourselves with the highest level of integrity and ethics. Our members understand that trust is the foundation of the financial industry, and we emphasize ethical decision-making in all our activities.
-        </ValueCard>
-        <ValueCard title="Community" index={2}>
-          We foster a supportive community where students can learn, grow, and connect. We believe that collaboration and mentorship are essential for personal and professional development in the finance industry.
-        </ValueCard>
-      </ValuesAnimation>
-
       {/* Why Join Section with Interactive Slide & Reveal */}
-      <WhyJoinAnimation />
-
-      <Cta />
-
-      {/* Analyst Training Program Widget */}
-      <AnalystTrainingWidget />
+      <div className="pb-16">
+        <WhyJoinAnimation />
+      </div>
     </Container>
   );
 }

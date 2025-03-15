@@ -6,12 +6,12 @@
   html,
   body {
     @apply dark:bg-trueGray-900;
-    font-family: 'Times New Roman', serif;
+    font-family: 'Playfair Display', serif;
     font-size: 18px;
   }
   
   * {
-    font-family: 'Times New Roman', serif;
+    font-family: 'Playfair Display', serif;
   }
   
   /* Ensure buttons and links have appropriate font sizes */
@@ -19,7 +19,7 @@
     font-size: 1.125rem; /* 18px */
   }
   
-  /* Adjust line heights for better readability with Times New Roman */
+  /* Adjust line heights for better readability with Playfair Display */
   p, li, span {
     line-height: 1.6;
   }

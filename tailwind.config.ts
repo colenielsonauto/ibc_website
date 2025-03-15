@@ -28,9 +28,12 @@ const config: Config = {
         '5xl': '3rem',       // 48px (increased from 3rem)
         '6xl': '3.75rem',    // 60px (increased from 3.75rem)
       },
+      fontFamily: {
+        playfair: ['var(--font-playfair)'],
+      },
     },
     fontFamily: {
-      sans: ["Times New Roman", "serif"],
+      sans: ["Playfair Display", "serif"],
       stock: [defaultTheme.fontFamily.sans],
     },
   },

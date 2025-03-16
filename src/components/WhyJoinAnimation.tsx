@@ -4,7 +4,7 @@ import { ReactNode, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { AnimatedHeading, AnimatedText } from './animations';
 import Link from 'next/link';
-import VantaFogBackground from './VantaFogBackground';
+import VantaTopologyBackground from './VantaTopologyBackground';
 import { usePathname } from 'next/navigation';
 
 interface BulletPointProps {
@@ -51,13 +51,13 @@ export default function WhyJoinAnimation() {
           transition={{ duration: 1, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
         >
           <div className="w-full h-full border border-black/50 rounded-xl overflow-hidden">
-            <VantaFogBackground key={`vanta-wrapper-${pathname}`}>
+            <VantaTopologyBackground key={`vanta-wrapper-${pathname}`}>
               {/* Semi-transparent overlay to ensure text readability */}
-              <div className="absolute inset-0 bg-black bg-opacity-25 z-10"></div>
+              <div className="absolute inset-0 bg-black bg-opacity-10 z-10"></div>
               
               {/* Content */}
               <div className="absolute inset-0 flex flex-col items-center justify-center p-6 z-20">
-                <h3 className="text-2xl md:text-3xl font-bold text-white text-center mb-8 drop-shadow-lg">
+                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-8 drop-shadow-lg">
                   Join the Investment Banking Club Today.
                 </h3>
                 <motion.div
@@ -67,13 +67,13 @@ export default function WhyJoinAnimation() {
                 >
                   <Link
                     href="/contact"
-                    className="inline-block py-3 md:py-4 text-lg font-medium text-center text-white bg-transparent rounded-md px-8 md:px-10 hover:bg-black/20 transition-all duration-300 shadow-md hover:shadow-lg border border-black"
+                    className="inline-block py-3 md:py-4 text-lg font-medium text-center text-gray-900 bg-transparent rounded-md px-8 md:px-10 hover:bg-black/10 transition-all duration-300 shadow-md hover:shadow-lg border border-black"
                   >
                     Click Here
                   </Link>
                 </motion.div>
               </div>
-            </VantaFogBackground>
+            </VantaTopologyBackground>
           </div>
         </motion.div>
       </div>

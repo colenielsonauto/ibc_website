@@ -28,7 +28,7 @@ export default function RootLayout({
       <body>
         <ThemeProvider attribute="class">
           <Navbar />
-          <div>{children}</div>
+          <div className="pt-20">{children}</div>
           <Footer />
           <PopupWidget />
         </ThemeProvider>

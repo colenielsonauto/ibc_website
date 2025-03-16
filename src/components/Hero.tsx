@@ -30,14 +30,19 @@ export const Hero = () => {
               </motion.span>
             </motion.h1>
             
-            <motion.p 
-              className="py-5 text-xl leading-normal text-gray-500 lg:text-xl xl:text-2xl dark:text-gray-300"
+            <motion.div
+              className="py-5 relative"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
             >
-              Preparing the next generation of finance professionals through education, networking, and real-world experience.
-            </motion.p>
+              <p className="text-xl leading-normal text-gray-500 lg:text-xl xl:text-2xl dark:text-gray-300 italic">
+                <span className="relative inline-block">
+                  <span className="relative z-10">Designed to be a forum for exceptional students interested in a career in high finance.</span>
+                  <span className="absolute bottom-0 left-0 w-full h-3 bg-[#0a2966]/10 dark:bg-[#0a2966]/20 -z-10 transform -rotate-1"></span>
+                </span>
+              </p>
+            </motion.div>
 
             <motion.div 
               className="flex flex-col items-start space-y-3 sm:space-x-4 sm:space-y-0 sm:items-center sm:flex-row"

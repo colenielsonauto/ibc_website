@@ -109,7 +109,12 @@ export default function VantaTopologyBackground({ children }: VantaTopologyBackg
             scale: 1.00,
             scaleMobile: 1.00,
             color: 0x142c8e,
-            backgroundColor: 0xcacfcf
+            backgroundColor: 0xcacfcf,
+            points: 15,
+            maxDistance: 20.00,
+            spacing: 15.00,
+            showDots: true,
+            speed: 2.00
           });
           console.log("Vanta effect initialized", mountId);
         } else {

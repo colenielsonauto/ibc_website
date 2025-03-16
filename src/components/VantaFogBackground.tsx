@@ -106,10 +106,10 @@ export default function VantaFogBackground({ children }: VantaFogBackgroundProps
             minHeight: 200.00,
             minWidth: 200.00,
             highlightColor: 0xffffff,
-            midtoneColor: 0x6b87cd,
-            lowlightColor: 0x7577c0,
-            blurFactor: 0.51,
-            speed: 1.00, // Reduced speed to prevent flickering
+            midtoneColor: 0x1258ff,
+            lowlightColor: 0xa5a5d4,
+            blurFactor: 0.34,
+            speed: 4.80,
             zoom: 0.20
           });
           console.log("Vanta effect initialized", mountId);
@@ -176,7 +176,7 @@ export default function VantaFogBackground({ children }: VantaFogBackgroundProps
         key={`vanta-container-${pathname}-${mountId}`} // Force remount on pathname change
       >
         {(isLowEndDevice || !threeJsLoaded || !vantaJsLoaded) && (
-          <div className="absolute inset-0 bg-gradient-to-r from-[#6b87cd] to-[#7577c0]"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1258ff] to-[#a5a5d4]"></div>
         )}
         {children}
       </div>

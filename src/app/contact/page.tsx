@@ -1,8 +1,67 @@
+"use client";
+
 import { Container } from "@/components/Container";
 import { SectionTitle } from "@/components/SectionTitle";
 import { Mail, MapPin, Phone, Instagram, Linkedin, Twitter } from "lucide-react";
+import { useState, FormEvent } from "react";
 
 export default function ContactPage() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setIsSuccess(false);
+    setErrorMessage("");
+
+    const target = e.target as typeof e.target & {
+      name: { value: string };
+      email: { value: string };
+      subject: { value: string };
+      message: { value: string };
+      reset: () => void;
+    };
+
+    const formData = {
+      name: target.name.value,
+      email: target.email.value,
+      subject: target.subject.value,
+      message: target.message.value
+    };
+
+    try {
+      // Replace this URL with your Google Apps Script web app URL
+      const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_URL';
+      
+      const response = await fetch(scriptURL, {
+        method: 'POST',
+        body: JSON.stringify(formData),
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        mode: 'no-cors'
+      });
+      
+      // Since no-cors mode doesn't return readable response
+      // We'll just assume success if no error is thrown
+      setIsSuccess(true);
+      target.reset();
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setErrorMessage("There was an error submitting the form. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleSubscribe = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    // Similar implementation for newsletter subscription
+    alert("Newsletter subscription feature coming soon!");
+  };
+
   return (
     <Container>
       <SectionTitle
@@ -88,7 +147,21 @@ export default function ContactPage() {
         <div>
           <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">Send Us a Message</h3>
           
-          <form className="space-y-6">
+          {isSuccess ? (
+            <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-md p-4 mb-6">
+              <p className="text-green-800 dark:text-green-200">
+                Thank you for your message! We'll get back to you soon.
+              </p>
+            </div>
+          ) : null}
+          
+          {errorMessage ? (
+            <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-md p-4 mb-6">
+              <p className="text-red-800 dark:text-red-200">{errorMessage}</p>
+            </div>
+          ) : null}
+          
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Name
@@ -147,9 +220,18 @@ export default function ContactPage() {
             
             <button
               type="submit"
-              className="w-full px-6 py-3 bg-[#0a2966] text-white font-medium rounded-md hover:bg-[#0a2966]/80 transition-colors"
+              disabled={isSubmitting}
+              className="w-full px-6 py-3 bg-[#0a2966] text-white font-medium rounded-md hover:bg-[#0a2966]/80 transition-colors disabled:bg-[#0a2966]/50 disabled:cursor-not-allowed"
             >
-              Send Message
+              {isSubmitting ? (
+                <span className="flex items-center justify-center">
+                  <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  Sending...
+                </span>
+              ) : "Send Message"}
             </button>
           </form>
         </div>
@@ -160,7 +242,7 @@ export default function ContactPage() {
         <p className="text-lg text-gray-600 dark:text-gray-400 text-center max-w-3xl mx-auto mb-8">
           Stay updated with our latest events, competitions, and opportunities by subscribing to our newsletter.
         </p>
-        <form className="max-w-md mx-auto">
+        <form className="max-w-md mx-auto" onSubmit={handleSubscribe}>
           <div className="flex flex-col sm:flex-row gap-3">
             <input
               type="email"
